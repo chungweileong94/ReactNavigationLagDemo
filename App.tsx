@@ -19,9 +19,6 @@ import {Alert, LogBox} from 'react-native';
 import {StyleSheet, Text, View, FlatList, Pressable} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {ScrollView} from 'react-native-gesture-handler';
-import {enableScreens} from 'react-native-screens';
-
-// enableScreens(false);
 
 import {
   Header,
@@ -110,7 +107,11 @@ const Screen: React.FC<{
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{...TransitionPresets.SlideFromRightIOS}}>
+      <Stack.Navigator
+        screenOptions={{
+          gestureEnabled: true,
+          ...TransitionPresets.SlideFromRightIOS,
+        }}>
         <Stack.Screen
           name={Route.FirstScreen}
           component={Screen}
